@@ -1,0 +1,80 @@
+### Test 1: Standard Time Countdown Input
+POST http://127.0.0.1:5000/time-countdown HTTP/1.1
+content-type: application/json
+
+{
+  "hours": 1,
+  "minutes": 30,
+  "seconds": 45
+}
+
+### Test 2: Zero Durations for Time Countdown
+POST http://127.0.0.1:5000/time-countdown HTTP/1.1
+content-type: application/json
+
+{
+  "hours": 0,
+  "minutes": 0,
+  "seconds": 0
+}
+
+### Test 3: Missing Fields for Time Coutndown
+POST http://127.0.0.1:5000/time-countdown HTTP/1.1
+content-type: application/json
+
+{}
+
+### Test 4: Standard Date Countdown
+POST http://127.0.0.1:5000/date-countdown HTTP/1.1
+content-type: application/json
+
+{
+  "start_date": "2024-11-18",
+  "end_date": "2025-01-01"
+}
+
+### Test 5: Same Date Start and End
+POST http://127.0.0.1:5000/date-countdown HTTP/1.1
+content-type: application/json
+
+{
+  "start_date": "2024-11-18",
+  "end_date": "2024-11-18"
+}
+
+### Test 6: End Date Earlier Than Start Date Countdown
+POST http://127.0.0.1:5000/date-countdown HTTP/1.1
+content-type: application/json
+
+{
+  "start_date": "2025-01-01",
+  "end_date": "2024-11-18"
+}
+
+
+### Test 7: Standard Pomodoro Input
+POST http://127.0.0.1:5000/pomodoro HTTP/1.1
+content-type: application/json
+
+{
+  "work_duration": 25,
+  "break_duration": 5,
+  "cycles": 3
+}
+
+### Test 8: Missing Fields (Should Use Defaults)
+POST http://127.0.0.1:5000/pomodoro HTTP/1.1
+content-type: application/json
+
+{}
+
+### Test 9: Edge Case (Zero Durations)
+POST http://127.0.0.1:5000/pomodoro HTTP/1.1
+content-type: application/json
+
+{
+  "work_duration": 0,
+  "break_duration": 0,
+  "cycles": 1
+}
+
