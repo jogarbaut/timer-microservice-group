@@ -41,9 +41,9 @@ def handle_pomodoro(data):
     # Add a break if not last cycle
     if cycle < cycles - 1:
       schedule.append({
-        'type': 'work',
+        'type': 'break',
         'start_time': current_time.strftime("%Y-%m-%d %H:%M:%S"),
-        'duration_minutes': work_duration
+        'duration_minutes': break_duration
       })
       # Increment time by the break duration
       current_time += timedelta(minutes=break_duration)
